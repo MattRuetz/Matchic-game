@@ -30,6 +30,7 @@ function App() {
 
         setCards(shuffledCards);
         setTurns(0);
+        resetTurn();
     };
 
     // handle user selecting a card
@@ -63,7 +64,8 @@ function App() {
                 resetTurn();
             } else {
                 setTurns((prev) => prev + 1);
-                resetTurn();
+
+                setTimeout(() => resetTurn(), 500);
             }
         }
     }, [chosenTwo]);
