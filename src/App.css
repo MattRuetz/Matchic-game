@@ -1,25 +1,20 @@
-:root {
-    --color-bg: #c23866;
-    --color-contrast: #fff;
-}
-
 .App {
-    margin: 860px;
-    max-width: 40px auto;
+    max-width: 860px;
+    margin: 40px auto;
 }
 
 button {
     background: none;
-    border: 2px solid var(--color-contrast);
+    border: 2px solid #fff;
     padding: 6px 12px;
     border-radius: 4px;
-    color: var(--color-contrast);
+    color: #fff;
     font-weight: bold;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1em;
 }
 
 button:hover {
-    background: var(--color-bg);
-    color: var(--color-contrast);
+    background: #c23866;
+    color: #fff;
 }
