@@ -18,6 +18,7 @@ function App() {
         firstCard: null,
         secondCard: null,
     });
+    const [disabled, setDisabled] = useState(false);
 
     // shuffle array with 2 of each card type
     const shuffleCards = () => {
@@ -43,11 +44,15 @@ function App() {
     // Flip false match, reset chosenTwo state
     const resetTurn = () => {
         setChosenTwo({ firstCard: null, secondCard: null });
+        // Enable user inputs again..
+        setDisabled(false);
     };
 
     //Triggers when a card is chosen
     useEffect(() => {
         if (chosenTwo.firstCard && chosenTwo.secondCard) {
+            setDisabled(true); //stop taking user inputs..
+
             // compare choices to see if match
             if (chosenTwo.firstCard.src === chosenTwo.secondCard.src) {
                 //Update cards array to mark matched cards
@@ -70,7 +75,10 @@ function App() {
         }
     }, [chosenTwo]);
 
-    console.log(cards);
+    // On Load (component mount)
+    useEffect(() => {
+        shuffleCards();
+    }, []);
 
     return (
         <div className="App">
@@ -88,11 +96,12 @@ function App() {
                             card === chosenTwo.secondCard ||
                             card.matched
                         }
+                        disabled={disabled}
                     />
                 ))}
             </div>
 
-            <p>Turns: {turns}</p>
+            <p className="turns">Turns: {turns}</p>
         </div>
     );
 }

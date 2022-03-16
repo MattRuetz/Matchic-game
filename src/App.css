@@ -25,3 +25,8 @@ button:hover {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
 }
+
+.turns {
+    font-size: 34px;
+    color: #ee407a;
+}
